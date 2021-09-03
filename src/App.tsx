@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fetchWeather } from './api/fetchWeather';
-import './App.css';
 
 const App = () => {
+    const [location, setLocation] = useState('');
+    const search = async (e: any) => {
+        if (e.key === 'Enter') {
+            const data = await fetchWeather(location)
+            console.log(data)
+        }
+    }
     return (
-        <div>
-            <h1>App</h1>
+        <div className="main-container">
+            <input
+                type="text"
+                className="search"
+                placeholder="Search..."
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onKeyPress={search} />
         </div>
     )
 }
