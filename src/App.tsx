@@ -23,7 +23,7 @@ const App = () => {
             <input
                 type="text"
                 className="search"
-                placeholder="Search..."
+                placeholder="Search for city..."
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 onKeyPress={search} />
@@ -49,7 +49,7 @@ const App = () => {
             )}
             {error && (
                 <div className="city">
-                    <div className="city-name">
+                    <div className="error">
                         <h2>City not found</h2>
                     </div>
                 </div>
